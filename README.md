@@ -8,6 +8,8 @@
   * To delete any boundaries that have already been drawn, use the right mouse button
 * Enter key is used to begin the path finding visualization
 
+The length of the shortest path from start point to end point will be displayed once the path has been found.
+
 To reset the program and start from the beginning again, click the scroll button of the mouse
 
 ```The pygame library is required for this program to run (pip install pygame)```
