@@ -1,4 +1,4 @@
 # path-finder
-Astar shortest path finding algorithm
+A* shortest pathfinding algorithm (visual implementation using Pygame)
 
 
