@@ -34,14 +34,13 @@ class Node:
 		self.width =width
 		self.tot_rows = tot_rows
 
-	#function returns the current position of the node
+
 	def get_pos(self):
 		return self.row, self.col
 
-	#function checks if the square on the grid has been checked or not when calculating the shortest path
 	def is_checked(self):
 		return self.color == RED
-	#check with openset
+
 	def is_open(self):
 		return self.color == GREEN
 
@@ -105,6 +104,7 @@ def draw_path(prev_nodes, current, draw):
 		draw()
 	return length
 
+#using manhattan distance to predict the shortest distance from current point to the end point
 def estimated_dist(p1, p2):
 	x1, y1 = p1
 	x2, y2 = p2
@@ -121,18 +121,18 @@ def path_finder(draw, grid, start, end):
 	total_distance = {node: float("inf") for row in grid for node in row}
 	total_distance[start] = estimated_dist(start.get_pos(), end.get_pos())
 
-	open_set_hash = {start} #checks if something is in the prioirqueueu
+	open_set_hash = {start}
 
 	while not open_set.empty():
 		for event in pygame.event.get():
 			if event.type == pygame.QUIT:
 				pygame.quit()
 
-		current = open_set.get()[2] #open set will score fscore, count nand node and we want just the node hence the 2
+		current = open_set.get()[2]
 		open_set_hash.remove(current)
 
 		if current == end:
-			#we have found the path
+			#path found
 			length = draw_path(prev_nodes, end, draw)
 
 			success_sound = mixer.Sound("success.wav")
@@ -232,7 +232,7 @@ def main(win, width):
 				pos = pygame.mouse.get_pos()
 				row,col = get_clicked_pos(pos, ROWS, width)
 				node = grid[row][col]
-				#above three lines copied from previous stataments for doing right click
+
 				node.reset()
 				if node == start:
 					start = end
