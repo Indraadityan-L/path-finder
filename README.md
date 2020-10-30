@@ -1,2 +1,2 @@
 # path-finder
-Astart shortest path finding algorithm
+Astar shortest path finding algorithm
